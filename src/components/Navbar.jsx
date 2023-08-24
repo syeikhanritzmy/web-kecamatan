@@ -1,5 +1,6 @@
 import React from 'react';
-import KecamatanItem from "./KecamatanItem"
+import { Link } from 'react-scroll';
+import KecamatanItem from "./KecamatanItem";
 
 function Navbar() {
   return (
@@ -9,10 +10,21 @@ function Navbar() {
     </div>
     <ul className="flex space-x-14 mr-14">
       {/* Tambahkan item navbar di sini */}
-      <li><a href="/" className="text-black">Home</a></li>
-      <li><a href="/about" className="text-black">About</a></li>
-      <li><a href="/services" className="text-black">Services</a></li>
-      <li><a href="/contact" className="text-black">Contact</a></li>
+      <li>
+          <Link to="section1" smooth={true} duration={500} className="text-black cursor-pointer">Home</Link>
+        </li>
+        <li>
+          <Link to="section2" smooth={true} duration={500} className="text-black cursor-pointer">Profil</Link>
+        </li>
+        <li>
+          <Link to="section3" smooth={true} duration={500} className="text-black cursor-pointer">Struktur</Link>
+        </li>
+        <li>
+          <Link to="section4" smooth={true} duration={500} className="text-black cursor-pointer">Data Kecamatan</Link>
+        </li>
+        <li>
+          <Link to="section5" smooth={true} duration={500} className="text-black cursor-pointer">Kontak</Link>
+        </li>
     </ul>
   </nav>
   );

@@ -4,12 +4,13 @@ import DataDesa from './components/DataDesa'
 import DataLayanan from './components/DataLayanan'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import SelamatDatang from './components/SelamatDatang'
 
 function App() {
 
   return (
     <>
-      <Navbar/>
+      <SelamatDatang/>
       <DataKecamatan />
       <DataDesa />
       <DataLayanan />
