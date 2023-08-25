@@ -5,9 +5,9 @@ import SlideAnimation from "./SlideAnimation";
 
 const Profil = () => {
     return (
-      <div className="flex" id="section2">
+      <div className="flex h-screen" id="section2">
         <div className="w-1/3 bg-gray-200 ">
-        <div className="object-cover h-full" style={{ backgroundImage: `url(${backgroundImage})`, height: '71vh'  }} ></div>
+        <div className="object-cover h-full" style={{ backgroundImage: `url(${backgroundImage})`, height: '100vh'  }} ></div>
           {/* Konten bagian kiri */}
         </div>
         <div className="flex-1 flex justify-center items-center">

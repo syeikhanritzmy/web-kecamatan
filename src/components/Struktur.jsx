@@ -84,11 +84,11 @@ const Section = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center mb-8" id="section3">
-      <div className='text-6xl mt-2 mb-8 font-bold'>
+    <section className="flex flex-col items-center justify-center mb-8 h-screen" id="section3">
+      <div className='text-6xl mt-14 mb-4 font-bold'>
         <h1>Struktur Kecamatan Lore Utara</h1>
       </div>
-      <div className="flex flex-col w-full items-center ">
+      <div className="flex flex-col w-full items-center mt-4">
         <div className="flex flex-col w-full items-center ">
           <Card
             key={data[0].id}
