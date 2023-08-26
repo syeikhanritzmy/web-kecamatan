@@ -1,44 +1,65 @@
-import React, { useState } from 'react'
-import DataDesaItem from './DataDesaItem'
-import ModalDesa from './ModalDesa'
+import { useState } from 'react'
+import { Card, Modal } from 'antd'
 
 const DataDesa = () => {
-  const [selectedItem, setSelectedItem] = useState(null)
-  const toggleModal = (item) => {
-    setSelectedItem(prevItem => prevItem === item ? null : item)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+  const [selectedCardData, setSelectedCardData] = useState(null)
+
+  const showModal = (data) => {
+    setSelectedCardData(data)
+    setIsModalVisible(true)
   }
+
+  const handleCancel = () => {
+    setSelectedCardData(null)
+    setIsModalVisible(false)
+  }
+
+  const cardData = [
+    {
+      title: 'Card 1',
+      content: 'Konten dari card 1',
+      imageUrl: 'https://via.placeholder.com/150',
+    },
+    {
+      title: 'Card 2',
+      content: 'Konten dari card 2',
+      imageUrl: 'https://via.placeholder.com/150',
+    },
+  ]
+
   return (
-    <div className='flex justify-center mt-8 flex-col items-center'>
+    <div className="flex justify-center mt-8 flex-col items-center">
       <div>DataDesa</div>
-      <div className='flex w-[800px] h-auto py-4  m-auto gap-5 justify-center flex-wrap items-center'>
-        <div onClick={() => toggleModal('data')} > {/** ini toggle harusnya pakai perulangan biar data yang kena klik di simpan di state */}
-          <DataDesaItem imgurl={`https://images.pexels.com/photos/16228243/pexels-photo-16228243/free-photo-of-scenery.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} name={'napu coba di click'} />
-        </div>
-
-        <div onClick={() => toggleModal('data')} > {/** ini toggle harusnya pakai perulangan biar data yang kena klik di simpan di state */}
-          <DataDesaItem imgurl={`https://images.pexels.com/photos/16228243/pexels-photo-16228243/free-photo-of-scenery.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} name={'napu coba di click'} />
-        </div>
-
-        <div onClick={() => toggleModal('data')} > {/** ini toggle harusnya pakai perulangan biar data yang kena klik di simpan di state */}
-          <DataDesaItem imgurl={`https://images.pexels.com/photos/16228243/pexels-photo-16228243/free-photo-of-scenery.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} name={'napu coba di click'} />
-        </div>
-
-        <div onClick={() => toggleModal('data')} > {/** ini toggle harusnya pakai perulangan biar data yang kena klik di simpan di state */}
-          <DataDesaItem imgurl={`https://images.pexels.com/photos/16228243/pexels-photo-16228243/free-photo-of-scenery.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} name={'napu coba di click'} />
-        </div>
-
-        <div onClick={() => toggleModal('data')} > {/** ini toggle harusnya pakai perulangan biar data yang kena klik di simpan di state */}
-          <DataDesaItem imgurl={`https://images.pexels.com/photos/16228243/pexels-photo-16228243/free-photo-of-scenery.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`} name={'napu coba di click'} />
-        </div>
-
+      <div className="flex">
+        {cardData.map((data, index) => (
+          <Card
+            key={index}
+            onClick={() => showModal(data)}
+            style={{ margin: '8px' }}
+            cover={<img alt={data.title} src={data.imageUrl} />}
+          >
+            <Card.Meta title="" description="Klik untuk membuka modal" />
+          </Card>
+        ))}
       </div>
-      <ModalDesa isOpen={!!selectedItem} onClose={toggleModal}><h1>DATA DESA ITEM</h1>
-        <div className='flex w-full justify-between'>
-          <div>
-            disini gambar
-          </div>
-          <div>disni deskripsi {selectedItem}</div></div></ModalDesa>
-
+      <Modal
+        title={selectedCardData ? null : 'Modal'}
+        visible={isModalVisible}
+        footer={null}
+        onCancel={handleCancel}
+      >
+        {selectedCardData && (
+          <>
+            <img
+              src={selectedCardData.imageUrl}
+              alt={selectedCardData.title}
+              style={{ maxWidth: '100%' }}
+            />
+            <p>{selectedCardData.content}</p>
+          </>
+        )}
+      </Modal>
     </div>
   )
 }
