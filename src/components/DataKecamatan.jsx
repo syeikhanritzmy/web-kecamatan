@@ -28,7 +28,7 @@ const dataKecamatan = [
   {
     id: 5,
     title: 'LUAS WILAYAH',
-    ket: '14.547 Orang',
+    ket: '86.265 Ha',
     icon: 'https://cdn-icons-png.flaticon.com/128/2969/2969964.png',
   },
 ]
