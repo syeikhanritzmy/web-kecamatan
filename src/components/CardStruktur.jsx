@@ -9,19 +9,14 @@ const Card = ({ image, name, position, period }) => {
   };
 
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg">
-      <img className="w-full" src={image} alt="Gambar Card" />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{name}</div>
-      </div>
-      <div className="px-6 py-4">
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={toggleModal}
-        >
-          Lihat Detail
-        </button>
-      </div>
+    <div className="min-w-min rounded-t-3xl overflow-hidden shadow-lg bg-white w-25">
+      <img className="w-full " src={image} alt="Gambar Card" />
+      <div className="px-6 py-4 flex flex-col items-center justify-center">
+      <div className="font-bold text-x mb-2 text-center">{name}</div>
+      <div className="font text-xs mb-2 text-center">{position}</div>
+      <div className="font text-xs mb-2 text-center">{period}</div>
+    </div>
+    
       {showModal && (
         <Modal image={image} name={name} position={position} period={period} toggleModal={toggleModal} />
       )}
