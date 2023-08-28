@@ -29,8 +29,10 @@ const DataDesa = () => {
   ]
 
   return (
-    <div className="flex justify-center mt-8 flex-col items-center">
-      <div>DataDesa</div>
+    <div className="flex justify-center flex-col items-center my-36">
+      <div className="flex text-3xl justify-center font-semibold">
+        Data Desa
+      </div>
       <div className="flex">
         {cardData.map((data, index) => (
           <Card
